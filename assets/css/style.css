@@ -1,0 +1,220 @@
+:root {
+  --primary-color: #539ecb;
+  --text-color: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #e9e7ee;
+}
+/* position: relative ->Định vị trí tuyệt đối cho các thành phần, không gây ảnh hưởng tới vị trí ban đầu hay các thành phần khác. */
+.player {
+  position: relative;
+  max-width: 470px;
+  margin: 0 auto;
+}
+
+.player .icon-pause {
+  display: none;
+}
+
+.player.playing .icon-pause {
+  display: inline-block;
+}
+
+.player.playing .icon-play {
+  display: none;
+}
+
+.dashboard {
+  padding: 16px 16px 14px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 480px;
+  background-color: #f2f0f6;
+  border-bottom: 1px solid #ebebeb;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+header h4 {
+  color: var(--primary-color);
+  font-size: 14px;
+}
+
+.cd {
+  display: flex;
+  width: 200px;
+  margin: auto;
+  border: 7px solid #fff;
+  border-radius: 50%;
+  box-shadow: -6px -6px 14px rgb(255 255 255 / 80%),
+    -6px -6px 10px rgb(255 255 255 / 50%), 6px 6px 10px rgb(255 255 255 / 8%),
+    6px 6px 10px rgb(0 0 0 / 15%);
+}
+
+.cd-thumb {
+  width: 100%;
+  padding-top: 100%;
+  margin: auto;
+  border-radius: 50%;
+  background-size: cover;
+  background-color: #333;
+}
+
+.body {
+  text-align: center;
+}
+
+.body__name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 10px;
+  color: var(--text-color);
+}
+
+.body__singer_name {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.progress {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 6px;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 18px 0 8px 0;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  text-align: center;
+  border-radius: 50%;
+  padding: 13px;
+  font-size: 16px;
+  color: var(--text-color);
+  background-color: #e8e8e8;
+  box-shadow: inset -6px -6px 14px rgba(255, 225, 255, 0.8),
+    inset -6px -6px 10px rgba(255, 255, 255, 0.5),
+    6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.control .btn.active {
+  color: var(--primary-color);
+}
+
+.control .btn-toggle-play {
+  background-color: var(--primary-color) !important;
+  box-shadow: inset 7px 7px 15px 0 rgb(0 0 0 / 20%),
+    inset 3px 3px 12px 0 hsl(0deg 0% 100% / 65%), -11px -11px 40px 3px #fff,
+    8px 14px 40px -20px rgb(0 0 0 / 19%);
+  color: #fff;
+}
+
+.playlist {
+  margin-top: 400px;
+  padding: 12px;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  color: var(--text-color);
+  background-color: #e8e8e8;
+  padding: 8px 16px;
+  border-radius: 5px;
+  box-shadow: inset -6px -6px 14px rgb(255 225 255 / 80%),
+    inset -6px -6px 10px rgb(255 255 255 / 50%),
+    2px 2px 8px rgb(255 255 255 / 8%), 2px 2px 10px rgb(0 0 0 / 15%);
+}
+
+.song .song__thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: 0 8px;
+  border: 2px solid #fff;
+}
+
+.song .song__body {
+  flex: 1;
+  padding: 0 16px;
+}
+
+.song .song__title {
+  font-size: 16px;
+  color: var(--text-color);
+  overflow: hidden;
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.song .song__author {
+  font-size: 12px;
+  color: #999;
+}
+
+.song .song__duration .song__total_time {
+  padding: 16px 8px;
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.song.active {
+  background-color: var(--primary-color);
+  cursor: pointer;
+  box-shadow: 6px 6px 10px rgb(0 0 0 / 15%);
+}
+
+.song.active .song__title {
+  color: #fff;
+}
+
+.song.active .song__author {
+  color: rgb(220, 217, 217);
+}
+
+.song.active .song__total_time {
+  color: #fff;
+}
